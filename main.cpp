@@ -8,14 +8,14 @@ class SegTree{
         t.resize(4*sz);
         d.resize(4*sz);
     }
-    void build(int v,int l,int r){
+    void build(int v,int l,int r,vector<int> &a){
         if(l==r){
             t[v]=a[l];
             return ;
         }
         int mid=(l+r)/2;
-        build(2*v,l,mid);
-        build(2*v+1,mid+1,r);
+        build(2*v,l,mid,a);
+        build(2*v+1,mid+1,r,a);
         t[v]=t[2*v]+t[2*v+1];
     }
     void push(int v,int l,int r){
